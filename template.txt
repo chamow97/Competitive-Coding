@@ -1,5 +1,5 @@
 //template by chamow
-
+//template
 #include<bits/stdc++.h>
 using namespace std;
 #define rep(i,val,n) for(int i=val;i<n;i++)
