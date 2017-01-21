@@ -1,58 +1,28 @@
 #include<bits/stdc++.h>
 using namespace std;
+typedef long long ll;
 int main()
 {
-long long n,i,t,t1,arr[5000],brr[5000],maxa = -100000, maxb = -100000;
-map<int,int> a;
-map<int,int> b;
+long long n,i;
+long long best = -1;
+pair<long long, long long> a[5005];
 cin>>n;
-for(i=0; i<n; i++)
+for(i=0;i<n;i++)
 {
-cin>>arr[i]>>brr[i];
-maxa = max(maxa, arr[i]);
-maxb = max(maxb, brr[i]);
-a[arr[i]] = brr[i];
-b[brr[i]] = arr[i];
+cin>>a[i].first>>a[i].second;
 }
-if(n == 1)
+sort(a,a+n);
+for(i=0;i<n;i++)
 {
-cout<<min(maxa, maxb);
-}
-else
+if(best <= a[i].second)
 {
-bool flag1 = false, flag2 = false;
-for(i=0; i<n; i++) 
-{
-if(b.at(brr[i]) == arr[i])
-{
-flag1 = true;
+best = a[i].second;
 }
 else
 {
-flag1 = false;
-break;
-}
-}
-for(i=0; i<n; i++)
-{
-if(a.at(arr[i]) == brr[i])
-{
-flag2 = true;
-}
-else 
-{
-flag2 = false;
-}
-}
-if(flag1 == true)
-{
-cout<<maxa;
-}
-else
-{
-cout<<maxb;
+best = a[i].first;
 }
 
 }
-
+cout<<best;
 }
