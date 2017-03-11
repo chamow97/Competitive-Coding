@@ -30,6 +30,30 @@ ll readInt () {
 }
 int main()
 {
+    ll t,n,x[100001],y;
+    int c;
+    t = readInt();
+    while(t--)
+    {
+        ll current,last;
+        n = readInt();
+        y = readInt();
+        current = y;
+        rep(i,1,n+1)
+        {
+            scanf("%c",&c);
+            x[i] = readInt();
+            if(c == 'T')
+            {
+                current = x[i];
+            }
+            else
+            {
+                current = x[i-1];
+            }
+        }
 
+        cout<<current<<endl;
+    }
     return 0;
 }

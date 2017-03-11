@@ -30,6 +30,34 @@ ll readInt () {
 }
 int main()
 {
+    ll n,m,t;
+    t = readInt();
+    while(t--)
+    {
+        ll ans;
+         n = readInt();
+         m = readInt();
+         if(n>m)
+         {
+
+             ans = 0;
+         }
+         else if(m==n)
+         {
+             ans = 1;
+         }
+         else
+         {
+             ans = ((m+n+1)/2 - n);
+             n += ans;
+             m -= ans;
+             if(m == n)
+             {
+                 ans += 1;
+             }
+         }
+         cout<<ans<<endl;
+    }
 
     return 0;
 }

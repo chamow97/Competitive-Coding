@@ -28,8 +28,49 @@ ll readInt () {
 	else
 		return result;
 }
+ll f(ll a)
+{
+    ll t,temp = a,sum=0;
+    while(temp)
+    {
+        t = temp%10;
+        temp/=10;
+        sum += t;
+    }
+    return sum;
+}
 int main()
 {
+    ll x,n,i=0,a[100000];
+    x = readInt();
+    while(1)
+    {
+        a[i] = readInt();
 
+        if(a[i] == 0)
+        {
+            break;
+        }
+        ++i;
+    }
+    n = i;
+    ll low = 0, high = n-1,mid;
+    while(low < high)
+    {
+        mid = (low+high)/2;
+        if(f(a[mid]) > x )
+        {
+            high = mid-1;
+        }
+        else if(f(a[mid]) < x)
+        {
+            low = mid+1;
+        }
+        else
+        {
+            break;
+        }
+    }
+    cout<<a[mid]<<endl;
     return 0;
 }

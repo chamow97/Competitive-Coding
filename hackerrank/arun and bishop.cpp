@@ -30,6 +30,40 @@ ll readInt () {
 }
 int main()
 {
+    ll n,x,y,d1=0,d2=0,pairs = 0,c[1001],temp,a[1001][1001];
+    n = readInt();
+    c[0] = 0;
+    c[1] = 0;
+    rep(i,2,1001)
+    {
+        c[i] = c[i-1] + i-1;
+        //cout<<c[i]<<" ";
+    }
+    temp = n;
+    while(temp--)
+    {
+        x = readInt();
+        y = readInt();
+        a[x][y] = 1;
+
+
+    }
+    rep(i,1,1001)
+    {
+        rep(j,1,1001)
+        {
+            if(i==j)
+            {
+                if(a[i][j] == 1)
+                {
+                    ++d1;
+                }
+            }
+            else if((i+j) == 1001
+        }
+    }
+    cout<<d1<<d2;
+    cout<<c[d1]+c[d2];
 
     return 0;
 }

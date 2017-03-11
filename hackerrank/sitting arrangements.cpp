@@ -28,8 +28,40 @@ ll readInt () {
 	else
 		return result;
 }
+ll solve(ll n, ll m)
+{
+    if(n==0 || m==0)
+    {
+        return 0;
+    }
+    if(n%2 == 0 && m%2 == 0)
+    {
+        return solve(n/2, m/2);
+    }
+    else if(n%2 == 1 && m%2 == 0)
+    {
+        return m + solve(n/2, m/2);
+    }
+    else if(n%2 == 0 && m%2 == 1)
+    {
+        return n + solve(n/2, m/2);
+    }
+    else
+    {
+        return n + m -1 + solve(n/2, m/2);
+    }
+}
 int main()
 {
-
+    ll t,n,m;
+    t = readInt();
+    while(t--)
+    {
+        ll answer = 0;
+        n = readInt();
+        m = readInt();
+        cout<<solve(n,m)<<endl;
+    }
     return 0;
 }
+

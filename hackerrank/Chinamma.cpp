@@ -2,8 +2,8 @@
 //template
 #include<bits/stdc++.h>
 using namespace std;
-#define rep(i,val,n) for(ll i=val;i<n;i++)
-#define per(j,val,n) for(ll j=val;j>=n;j--)
+#define rep(i,val,n) for(int i=val;i<n;i++)
+#define per(j,val,n) for(int j=val;j>=n;j--)
 #define pb push_back
 #define pi 3.14157
 typedef long long ll;
@@ -30,6 +30,22 @@ ll readInt () {
 }
 int main()
 {
-
+    ll n,sum=0;
+    n = readInt();
+    ll a[100001];
+    a[1] = 1;
+    rep(i,2,n+1)
+    {
+        if(i%2 == 0)
+        {
+            a[i] = a[i-1] + 1;
+        }
+        else
+        {
+            a[i] = a[i-1];
+        }
+        sum += a[i];
+    }
+    cout<<sum+1;
     return 0;
 }

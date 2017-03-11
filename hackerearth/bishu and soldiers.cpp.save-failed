@@ -30,6 +30,25 @@ ll readInt () {
 }
 int main()
 {
+    ll n,a[10001],q,p;
+    n = readInt();
+    a[0] = 0;
+    rep(i,1,n+1)
+    {
+        a[i] = readInt();
+        a[i] += a[i-1];
+    }
+    q = readInt();
+    while(q--)
+    {
+        p = readInt();
+        ll low = 1, high = n,mid;
+        while(low < high)
+        {
+            ll mid = (low+high+1)/2;
 
+        }
+        cout<<mid<<" "<<b[mid]<<endl;
+    }
     return 0;
 }

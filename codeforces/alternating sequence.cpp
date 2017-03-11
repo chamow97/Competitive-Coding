@@ -30,6 +30,33 @@ ll readInt () {
 }
 int main()
 {
+	ll n,maximum = 0,temp[2];
+	string s;
+	n = readInt();
+	ll dp[n+1];
+	cin>>s;
+	dp[0] = 0;
+	dp[1] = 1;
+	rep(i,1,n)
+	{
+		if(s[i] != s[i-1])
+		{
+			dp[i+1] = 1+dp[i];
+		}
+		else
+		{
+			dp[i+1] = dp[i];
+		}
+	}
+	rep(i,1,n+1)
+	{
+		maximum = max(maximum, dp[i]);
+	}
+	if(temp[0] == temp[1])
+	{
+		maximum = n;
+	}
+	cout<<min(n, maximum + 2);
 
     return 0;
 }

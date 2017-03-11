@@ -30,6 +30,27 @@ ll readInt () {
 }
 int main()
 {
+    ll temp,n,f,a[100001],dp[100001];
+    bool pos[100001];
+    n = readInt();
+    f = readInt();
+    rep(i,1,n+1)
+    {
+        a[i] = readInt();
+    }
 
+    rep(i,0,n)
+    {
+        temp = readInt();
+        pos[temp] = true;
+    }
+    ll l=0;
+   rep(i,1,n+1)
+   {
+       if(pos[i] == true)
+       {
+           dp[i] = a[l++];
+       }
+   }
     return 0;
 }

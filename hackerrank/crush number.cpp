@@ -28,8 +28,41 @@ ll readInt () {
 	else
 		return result;
 }
+bool f(ll n)
+{
+    ll t;
+    while(n)
+    {
+        t = n%10;
+        n /= 10;
+        if(t == 0 || t == 2 || t == 7)
+        {
+
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+    return true;
+}
 int main()
 {
+    ll t,n,l;
+    t = readInt();
+    while(t--)
+    {
+        n = readInt();
+        for(l=n ; ; l+=n)
+        {
+            if(f(l) == true)
+            {
+                cout<<l<<endl;
+                break;
+            }
+        }
+    }
 
     return 0;
 }

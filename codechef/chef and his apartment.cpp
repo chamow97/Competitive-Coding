@@ -1,9 +1,9 @@
 //template by chamow
-//template
+
 #include<bits/stdc++.h>
 using namespace std;
-#define rep(i,val,n) for(ll i=val;i<n;i++)
-#define per(j,val,n) for(ll j=val;j>=n;j--)
+#define rep(i,val,n) for(int i=val;i<n;i++)
+#define per(j,val,n) for(int j=val;j>=n;j--)
 #define pb push_back
 #define pi 3.14157
 typedef long long ll;
@@ -30,6 +30,36 @@ ll readInt () {
 }
 int main()
 {
+	ll counter=0,t,result=0,n,a[100000],pos=0;
+	t = readInt();
+	while(t--)
+	{
+	    n = readInt();
+	    pos = n;
+	    counter = 0;
+	    result = 0;
+
+	rep(i,0,n)
+	{
+		a[i] = readInt();
+	}
+	rep(i,0,n)
+	{
+		if(a[i] == 0)
+		{
+
+			if(counter == 0)
+            {
+                pos = i;
+            }
+            ++counter;
+		}
+	}
+	//adding remaining due ie. if at last there are some due months
+	result += ((counter*1000) + ((n-pos)*100));
+	cout<<result<<'\n';
+
+	}
 
     return 0;
 }
