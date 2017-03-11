@@ -1,0 +1,44 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    string a,b;
+    bool visited=false;
+    long long n,len,i;
+    cin>>n;
+    while(n--)
+    {
+        visited=false;
+        cin>>a>>b;
+        len=a.length();
+        if((a[0]==b[0] && a[0]=='#') || (a[len-1]==b[len-1] && a[len-1]=='#'))
+            cout<<"No\n";
+        else
+            {
+
+                for(i=1;i<len-1;i++)
+                {
+                    if(a[i+1]=='.' || b[i]=='.' || b[i+1]=='.')
+                    {
+                        visited=true;
+                    }
+                    else
+                    {
+                        visited=false;
+                        break;
+                    }
+                }
+                if(visited==true)
+                {
+                    cout<<"Yes\n";
+                }
+                else
+                {
+                    cout<<"No\n";
+                }
+            }
+
+
+
+    }
+}
