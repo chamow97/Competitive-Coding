@@ -1,61 +1,103 @@
 //template by chamow
+
 #include<bits/stdc++.h>
 using namespace std;
 #define rep(i,val,n) for(int i=val;i<n;i++)
-int gcd(int a, int b)
-{
-    if(b == 0)
-    {
-        return a;
-    }
-    else
-    {
-        return gcd(b,a%b);
-    }
-}
-int LIS(vector<int> &v)
-{
-	int i,length = v.size(),len=1;
-	vector<int> tail(v.size(),0);
-	tail[0] = v[0];
-	if(length == 0)
-	{
-		return 0;
+#define per(j,val,n) for(int j=val;j>=n;j--)
+#define pb push_back
+#define pi 3.14157
+#define MAX 10000001
+typedef long long ll;
+ll i,j;
+//fast IO
+ll readInt () {
+	bool minus = false;
+	ll result = 0;
+	char ch;
+	ch = getchar();
+	while (true) {
+		if (ch == '-') break;
+		if (ch >= '0' && ch <= '9') break;
+		ch = getchar();
 	}
-	for(i = 1; i<length ; i++)
-	{
-        if(gcd(v[i],tail[len-1])>1)
-        {
-            tail[len++] = v[i];
-        }
-        else if(v[i]<tail[len-1])
-        {
-            tail[len-1]=v[i];
-        }
+	if (ch == '-') minus = true; else result = ch-'0';
+	while (true) {
+		ch = getchar();
+		if (ch < '0' || ch > '9') break;
+		result = result*10 + (ch - '0');
 	}
-	return len;
+	if (minus)
+		return -result;
+	else
+		return result;
 }
-
-//int findPosition(int l, int r, vector<int> &tail, int key)
-//{
-//	while((r-l)>1)
-//	{
-//		int m = l+(r-l)/2;
-//		if(tail[m] >= key)
-//		{
-//			r = m;
-//		}
-//		else
-//		{
-//			l = m;
-//		}
-//	}
-//	return r;
-//}
-
 
 int main()
 {
-	std::vector<int> v{13, 2, 8, 6, 3, 1, 9};
-	cout<<"\nLongest Increasing Subsequence is : "<<LIS(v);
+    ll t,n,maximum=0;
+    vector<ll> prime(MAX),a(MAX),maxLen(MAX);
+     vector<bool> isPrime(MAX,true);
+    rep(i,0,MAX)
+    {
+        prime[i] = i;
+    }
+    for(i=2; i<= sqrt(MAX); i++)
+    {
+        if(isPrime[i] == true)
+        {
+            for(j=i*2; j<MAX; j+=i)
+            {
+                isPrime[j] = false;
+                prime[j] = i;
+            }
+        }
+    }
+    t = readInt();
+    while(t--)
+    {
+        maximum = 0;
+        n = readInt();
+        rep(i,0,n)
+        {
+            a[i] = readInt();
+        }
+        rep(i,0,MAX)
+        {
+           maxLen[i] = 0;
+        }
+        rep(i,0,n)
+        {
+            vector<ll> factor;
+            ll temp = a[i];
+            while(temp > 1)
+            {
+                factor.pb(prime[temp]);
+                temp /= prime[temp];
+            }
+            maximum = 0;
+            for(j=0; j<factor.size(); j++)
+            {
+                maximum = max(maximum, maxLen[factor[j]]);
+            }
+            for(j=0; j<factor.size(); j++)
+            {
+                maxLen[factor[j]] = maximum + 1;
+                //cout<<maxLen[factor[j]]<<" ";
+            }
+        }
+        maximum = 0;
+        rep(i,0,MAX)
+        {
+            maximum = max(maximum,maxLen[i]);
+        }
+        //as we can always select the last element
+        if(maximum == 0)
+        {
+            maximum = 1;
+        }
+        cout<<maximum<<endl;
+    }
+
+    return 0;
 }
+
