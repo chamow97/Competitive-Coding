@@ -30,7 +30,7 @@ ll readInt () {
 }
 int main()
 {
-	ll t,n,k,maxdiff=0,diff2,diff1,diff;
+	ll t,n,k,maxdiff=0,diff2,diff1,diff,maxsum=0;
 	string s;
 	t = readInt();
 	while(t--)
@@ -38,14 +38,14 @@ int main()
 		maxdiff = 0;
 		diff1=0;
 		diff2=0;
+        maxsum=0;
 		n = readInt();
 		k = readInt();
-		vector<ll> dp(n);
-		priority_queue<ll> pq;
+		vector<ll> temp;
 		cin>>s;
 		rep(i,0,n)
 		{
-			if(i & 1 == 1)
+			if(i % 2 == 1)
 			{
 				if(s[i] == '0')
 				{
@@ -69,33 +69,52 @@ int main()
 			}
 		}
 		diff = min(diff1,diff2);
-		dp[0] = 1;
-		rep(i,1,n)
-		{
-			if(s[i] == s[i-1])
-			{
-				dp[i] = 1 + dp[i-1];
-			}
-			else
-			{
-				dp[i] = 1;
-			}
-			maxdiff = max(maxdiff,dp[i]);
-		}
-		if(diff <= k)
-		{
-			cout<<"1"<<endl;
-		}
-		else if(maxdiff == 1)
-		{
-			cout<<"1"<<endl;
-		}
-		else if(maxdiff == 2)
-		{
-			cout<<"2"<<endl;
-		}
-		
-		
+        if(diff <= k)
+        {
+            cout<<"1"<<endl;
+        }
+        else
+        {
+           ll low,high,mid;
+            maxsum = 1;
+            rep(i,1,n)
+            {
+                if(s[i] != s[i-1])
+                {
+                    temp.pb(maxsum);
+                    maxsum = 1;
+                }
+                else
+                {
+                    ++maxsum;
+                }
+            }
+            temp.pb(maxsum);
+            low = 2;
+            high = n;
+            ll ans = n;
+            while(low <= high)
+            {
+                ll mid = (low + high)/2;
+                ll sum = 0;
+                for(int l : temp)
+                {
+                    sum += (l)/(mid + 1);
+                }
+                if(sum <= k)
+                {
+                    ans = min(ans, mid);
+                    high = mid - 1;
+                }
+                else
+                {
+                    low = mid + 1;
+                }
+            }
+            cout<<ans<<endl;
+        }
+
+
 
 	}
 
