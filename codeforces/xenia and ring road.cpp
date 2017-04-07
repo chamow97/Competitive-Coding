@@ -13,47 +13,41 @@ using namespace std;
 /*-------------------------------------------------------- */
 
 typedef long long ll;
+typedef vector<ll> vec;
 typedef vector<bool> boolean;
 
 /*-------------------------------------------------------- */
-ll counter = 0;
-boolean visited(2500, false);
-	
-void dfs(ll s, vector<ll> *adj)
-{
-	visited[s] = true;
-	vector<ll>::iterator i;
-	for(i = adj[s].begin(); i != adj[s].end(); i++)
-	{
-		if(visited[*i] == false)
-		{
-			dfs(*i, adj);
-		}
-	}
-}
 
 int main()
 {
-	ll n,m, maximum = 0, u, v;
+	ll n,m;
 	cin>>n>>m;
-	vector<ll> *adj = new vector<ll>[n];
+	vec arr(m,0);
 	rep(i,0,m)
 	{
-		cin>>u>>v;
-		u -= 1;
-		v -= 1;
-		adj[u].pb(v);
-		adj[v].pb(u);
+		cin>>arr[i];
 	}
-	rep(i,0,n)
+	ll steps = 0;
+	ll previous = 1;
+	rep(i,0,m)
 	{
-		if(visited[i] == false)
+		if(arr[i] == previous)
 		{
-			++counter;
-			dfs(i,adj);
+			//do nothing
 		}
+		else if(arr[i] < previous)
+		{
+			steps += ((n - previous) + (arr[i]));
+			previous = arr[i];
+		}
+		else
+		{
+			steps += ((arr[i] - previous));
+			previous = arr[i];
+		}
+		//cout<<steps<<endl;
+
 	}
-	ll ans = pow(2,n-counter);
-	cout<<ans;
+	cout<<steps<<endl;
 	return 0;
 }
