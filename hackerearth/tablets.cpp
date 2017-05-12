@@ -30,31 +30,39 @@ ll readInt () {
 }
 int main()
 {
-    ll n,a[100001],dp[100001],sum=0;
+    ll n, sum = 0;
     n = readInt();
-    rep(i,1,n+1)
+    vector<ll> arr(n,0), dp(n,0);
+    dp[0] = 1;
+    rep(i,0,n)
     {
-        a[i] = readInt();
+        arr[i] = readInt();
     }
-    dp[0] = 0;
-    dp[1] = 1;
-    rep(i,2,n+1)
+    rep(i,1,n)
     {
-        if(a[i] > a[i-1])
+        if(arr[i] > arr[i-1])
         {
-            dp[i] = dp[i-1] + 1;
+            dp[i] = 1 + dp[i-1];
         }
         else
         {
             dp[i] = 1;
         }
+    }   
+    per(j,n-2,0)
+    {
+        if(arr[j] > arr[j+1])
+        {
+            if(dp[j] <= dp[j+1])
+            {
+                dp[j] = 1 + dp[j+1];
+            }
+        }
     }
-
-    rep(i,1,n+1)
+    rep(i,0,n)
     {
         sum += dp[i];
     }
     cout<<sum;
-
     return 0;
 }
