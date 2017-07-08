@@ -1,47 +1,85 @@
+//template by chamow
 #include<bits/stdc++.h>
+/*-------------------------------------------------------- */
 using namespace std;
+
+/*-------------------------------------------------------- */
+
+#define rep(i,val,n) for(ll i=val;i<n;i++)
+#define per(j,val,n) for(ll j=val;j>=n;j--)
+#define pb push_back
+#define pi 3.14157
+#define mp make_pair
+#define MODULO 1000000007
+#define INF 1000000000000000
+
+/*-------------------------------------------------------- */
+
+typedef long long ll;
+typedef vector<bool> boolean;
+typedef vector<ll> vec;
+
+
+/*-------------------------------------------------------- */
+
+ll gcd(ll a, ll b)
+{
+	if(b == 0)
+	{
+		return a;
+	}
+	return gcd(b, a%b);
+}
+
+ll lcm(ll a, ll b)
+{
+	return ((a*b)/gcd(a,b));
+}
+
+long long int read_int(){
+	char r;
+	bool start=false,neg=false;
+	long long int ret=0;
+	while(true){
+		r=getchar();
+		if((r-'0'<0 || r-'0'>9) && r!='-' && !start){
+			continue;
+		}
+		if((r-'0'<0 || r-'0'>9) && r!='-' && start){
+			break;
+		}
+		if(start)ret*=10;
+		start=true;
+		if(r=='-')neg=true;
+		else ret+=r-'0';
+	}
+	if(!neg)
+		return ret;
+	else
+		return -ret;
+}
+/*-------------------------------------------------------- */
+
 int main()
 {
-	long long n,a[100000],i,j,m,c[100000],pos,low,high,mid,flag=0;
-	cin>>n;
-	for(i=0;i<n;i++)
-	{
-		cin>>a[i];
-		if(i>=1)
-		a[i]=a[i]+a[i-1];
-		//cout<<a[i]<<endl;	
-	}
-	
-	cin>>m;
-	for(i=0;i<m;i++)
-		cin>>c[i];
-	for(i=0;i<m;i++)
-	{
-		
-				low=0;
-				high=n-1;
-				while(low<=high)
-				{
-					mid=(low+high)/2;
-					if(c[i]<a[mid])
-					{
-						high=mid-1;
-						//flag=0;
-						pos=mid;
-						
-					}
-					else if(c[i]==a[mid])
-					{
-						pos=mid;
-						break;
-					}
-					else
-					{
-						low=mid+1;
-						//flag=0;
-						pos=mid;
-					}
-				}
-				cout<<mid+1<<'\n';
-	}
+    ll n, m;
+    n = read_int();
+    ll temp;
+    vec a;
+    ll prev = 0;
+    rep(i,0,n)
+    {
+        temp = read_int();
+        prev += temp;
+        a.pb(prev);
+    }
+    m = read_int();
+    vec arr(m,0);
+    rep(i,0,m)
+    {
+        arr[i] = read_int();
+        ll pos = (lower_bound(a.begin(), a.end(), arr[i]) - a.begin());
+        cout<<pos+1<<endl;
+    }
+	return 0;
 }

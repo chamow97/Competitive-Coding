@@ -1,21 +1,81 @@
+//template by chamow
 #include<bits/stdc++.h>
-
+/*-------------------------------------------------------- */
 using namespace std;
+
+/*-------------------------------------------------------- */
+
+#define rep(i,val,n) for(ll i=val;i<n;i++)
+#define per(j,val,n) for(ll j=val;j>=n;j--)
+#define pb push_back
+#define pi 3.14157
+#define mp make_pair
+
+/*-------------------------------------------------------- */
+
+typedef long long ll;
+typedef vector<bool> boolean;
+typedef vector<ll> vec;
+
+
+/*-------------------------------------------------------- */
+
+ll gcd(ll a, ll b)
+{
+	if(b == 0)
+	{
+		return a;
+	}
+	return gcd(b, a%b);
+}
+
+ll lcm(ll a, ll b)
+{
+	return ((a*b)/gcd(a,b));
+}
+
+long long int read_int(){
+	char r;
+	bool start=false,neg=false;
+	long long int ret=0;
+	while(true){
+		r=getchar();
+		if((r-'0'<0 || r-'0'>9) && r!='-' && !start){
+			continue;
+		}
+		if((r-'0'<0 || r-'0'>9) && r!='-' && start){
+			break;
+		}
+		if(start)ret*=10;
+		start=true;
+		if(r=='-')neg=true;
+		else ret+=r-'0';
+	}
+	if(!neg)
+		return ret;
+	else
+		return -ret;
+}
+/*-------------------------------------------------------- */
 
 int main()
 {
-	long long n,x1,y1,x[1000],y[1000],v[1000],i;
-	float val=0.0,minimum=100000.0,val1,val2;
-	cin>>x1>>y1;
-	cin>>n;
-	for(i=0;i<n;i++)
-	{
-		cin>>x[i]>>y[i]>>v[i];
-		val1=(abs(x1-x[i]))*(1.00);
-		val2=(abs(y1-y[i]))*(1.00);
-		val=float((val1+val2)/((1.00)*(v[i])));
-		minimum=float(min(minimum,val));
-	}
-	cout<<setprecision(20)<<minimum;
+    ll a, b, u, v, w, n;
+    long double minimum = 100000000.0;
+    long double distance = 0.0;
+    a = read_int();
+    b = read_int();
+    n = read_int();
+    rep(i,0,n)
+    {
+        u = read_int();
+        v = read_int();
+        w = read_int();
 
+        distance = (sqrt(((a - u) * (a - u)) + ((b - v)*(b-v))));
+        minimum = min(minimum,(distance/(w)));
+    }
+    cout<<setprecision(10)<<minimum;
+
+	return 0;
 }

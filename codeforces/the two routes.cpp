@@ -153,6 +153,7 @@ int main()
 	if(isPossible == false)
 	{
 		cout<<-1;
+		
 		return 0;
 	}
 	cout<<max(counterTrain, counterBus);

@@ -30,38 +30,36 @@ ll readInt () {
 }
 int main()
 {
-    ll n,a[100000];
+    ll n,a[100001];
+    vector<bool> prime(1000001,true);
+    vector<ll> numbers;
+    prime[1] = false;
+    rep(i,2,sqrt(100000)+1)
+    {
+        if(prime[i] == true)
+        {
+            for(ll j = (i*i); j <= 100000; j += i)
+            {
+                prime[j] = false;
+            }
+        }
+    }
     n = readInt();
     rep(i,0,n)
     {
         a[i] = readInt();
-    }
-    rep(i,0,n)
-    {
-        ll sum = 0;
-         rep(j,1,sqrt(a[i])+1)
+        ll val = pow(a[i],0.5);
+        ll check = pow(val,2);
+        if(a[i] == check)
         {
-            if( a[i]%j == 0)
+            if(prime[val] == true)
             {
-                if(j == a[i]/j)
-                {
-                    sum += 1;
-                }
-                else
-                {
-                    sum += 2;
-                }
+                printf("YES\n");
+                continue;
             }
         }
-        //cout<<sum<<endl;
-        if(sum == 3)
-        {
-            printf("YES\n");
-        }
-        else
-        {
-            printf("NO\n");
-        }
+        printf("NO\n");
+
     }
     return 0;
 }
