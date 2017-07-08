@@ -39,84 +39,53 @@ ll lcm(ll a, ll b)
 }
 
 /*-------------------------------------------------------- */
+#define maxn 300000
+vector<pair< ll, ll > > open[maxn], close[maxn];
+multiset<ll> best[maxn];
 
-struct val{
-    ll l, r, cost;
-};
-
-bool myFunc(val &a, val &b)
-{
-    if(a.l == b.l)
-    {
-    	return a.cost < b.cost;
-    }
-    return a.l < b.l;
-}
 int main()
 {
 	fastread;
+	ll ans = INF;
 	ll n, x;
 	cin>>n>>x;
-	val S[n+1];
-	
 	rep(i,0,n)
 	{
-	    cin>>S[i].l>>S[i].r>>S[i].cost;
+		ll l, r, cost, d;
+		cin>>l>>r>>cost;
+		d = r-l+1;
+		open[l].pb(mp(d, cost));
+		close[r].pb(mp(d, cost));
+		best[d].insert(cost);
 	}
-	sort(S, S+n, myFunc);
-	vector<val> *v = new vector<val>[x+1];
-	rep(i,0,n)
+	rep(i,0,maxn)
 	{
-		ll pos = S[i].r - S[i].l + 1;
-		if(pos > x)
-		{
-			continue;
-		}
-		v[pos].pb(S[i]);
+		best[i].insert(INF);
 	}
-	vec dp(200001,INF);
-	rep(i,0,n)
+	rep(i,0,maxn)
 	{
-		ll other_pair = (S[i].r - S[i].l + 1);
-		ll pair_of = x - other_pair;
-		if(pair_of < 0)
+		vector< pair<ll, ll> > :: iterator v;
+		for(v = open[i].begin(); v != open[i].end(); v++)
 		{
-			continue;
+			ll c = (*v).second;
+			ll d = (*v).first;
+			best[d].erase(best[d].find(c));
 		}
-		ll low = 0, high = v[pair_of].size();
-		ll ans = -1;
-		while(low < high)
+		for(v = close[i].begin(); v != close[i].end(); v++)
 		{
-			ll mid = (low + high + 1)/2;
-			if(v[pair_of][mid].l > S[i].r)
+			ll c = (*v).second;
+			ll d = (*v).first;
+			if(d > x)
 			{
-				ans = mid;
-				high = mid-1;
+				continue;
 			}
-			else
-			{
-				low = mid+1;
-			}
+			ans = min(ans, c + *best[x-d].begin());
 		}
-		if(ans != -1)
-		{
-			dp[other_pair] = min(dp[other_pair], S[i].cost + v[pair_of][ans].cost);
-
-		}
-
-	}
-	ll ans = INF;
-	rep(i,1,200001)
-	{
-		ans = min(ans, dp[i]);
 	}
 	if(ans >= INF)
 	{
 		ans = -1;
 	}
 	cout<<ans;
-
-
-
-return 0;
+	return 0;
 }
