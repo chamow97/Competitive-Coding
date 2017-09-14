@@ -60,87 +60,36 @@ long long int read_int(){
 }
 /*-------------------------------------------------------- */
 
-bool isPalindrome(string &s)
-{
-	ll len = s.length();
-	rep(i,0,(len/2) + 1)
-	{
-		if(s[i] != s[len-1-i])
-		{
-			return false;
-		}
-	}
-	return true;
-}
-ll solve(string &str, ll len)
-{
-	rep(i,0,(len/2))
-	{
-        if(str[i] < str[len-1-i])
-        {
-            ll j = len-1-i;
-            str[j] = '0';
-            --j;
-            while(str[j] == '9' && j >= i )
-            {
-                str[j] = '0';
-                --j;
-            }
-            str[j] = str[j] + 1;
-            //cout<<str<<endl;
-        }
-	}
-
-
-
-	rep(i,0,(len/2)+1)
-	{
-		if(str[i] >= str[len-1-i])
-		{
-			str[len-1-i] = str[i];
-		}
-	}
-
-	return -1;
-}
-
 int main()
 {
-	ll t;
-	t = read_int();
-	while(t--)
+	while(1){
+	ll a, b;	
+	a = read_int();
+	b = read_int();
+	if(a == -1 && b == -1)
 	{
-		string s;
-		cin>>s;
-		ll len = s.length();
-		if(isPalindrome(s) == true)
-		{
-			if(s[len-1] < '9')
-			{
-				s[len - 1] = 1 + s[len - 1];
-			}
-			else
-			{
-				s[len - 1] = '0';
-				ll j = len - 2;
-				while(s[j] == '9' && j >= 0)
-				{
-					s[j] = '0';
-					--j;
-				}
-				if(j >= 0)
-				{
-					s[j] += 1;
-				}
-				else
-				{
-					s = "1" + s;
-				}
-			}
-		}
-		len = s.length();
-		solve(s, len);
-		cout<<s<<"\n";
+		return 0;
 	}
+	ll maximum, minimum;
+	maximum = max(a, b);
+	minimum = min(a, b);
+	if(minimum == 0)
+	{
+		cout<<maximum<<"\n";
+	}
+	else if((maximum - minimum) <= 1)
+	{
+		cout<<1<<"\n";
+	}
+	else
+	{
+		while(minimum)
+		{
+			maximum = (maximum+1)/2;
+			--minimum;
+		}
+		cout<<maximum<<"\n";
+	}
+}
 	return 0;
 }

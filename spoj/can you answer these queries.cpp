@@ -10,8 +10,10 @@ using namespace std;
 #define pb push_back
 #define pi 3.14157
 #define mp make_pair
-#define MODULO 1000007
+#define MODULO 1000000007
 #define INF 1000000000000000
+#define fastread ios_base::sync_with_stdio(false); cin.tie(NULL);
+
 
 /*-------------------------------------------------------- */
 
@@ -36,42 +38,22 @@ ll lcm(ll a, ll b)
 	return ((a*b)/gcd(a,b));
 }
 
-long long int read_int(){
-	char r;
-	bool start=false,neg=false;
-	long long int ret=0;
-	while(true){
-		r=getchar();
-		if((r-'0'<0 || r-'0'>9) && r!='-' && !start){
-			continue;
-		}
-		if((r-'0'<0 || r-'0'>9) && r!='-' && start){
-			break;
-		}
-		if(start)ret*=10;
-		start=true;
-		if(r=='-')neg=true;
-		else ret+=r-'0';
-	}
-	if(!neg)
-		return ret;
-	else
-		return -ret;
-}
 /*-------------------------------------------------------- */
 
 int main()
 {
-    ll t, n;
-    t = read_int();
-    while(t--)
+	fastread;
+    ll n, m, l, r;
+    cin>>n;
+    vec arr(n,0);
+    rep(i,0,n)
     {
-        n = read_int();
-        ll ans = (n*(n+1));
-        ans = (ans%MODULO);
-        ans += ((n*(n-1))/2);
-        ans = ans % MODULO;
-        cout<<ans<<endl;
+        cin>>arr[i];
+    }
+    cin>>m;
+    rep(i,0,m)
+    {
+
     }
 	return 0;
 }
