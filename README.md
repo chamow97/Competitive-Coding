@@ -1,3 +1,26 @@
-#COMPETITIVE CODING
-This repository contains all the submissions i have made in Codechef, Codeforces, HackerRank, HackerEarth, SPOJ,Topcoder.
-#NOTE: I have tried to maintain my repository clean but i might have some files which are not completed or submitted to the judges and hence be buggy. Please report if any code is incorrect. I will also assure that all the code after initial commit will be perfect.
+<h1>Sport Programming</h1>
+<br>
+<br>
+<h2>Introduction</h2>
+<p>This repository contains all my submissions to the online judges. The solution is written in <strong>C++</strong>.</p>
+<h2>Sites Included</h2>
+<ul>
+	<li>Codechef</li>
+	<li>Codeforces</li>
+	<li>Google Code Jam</li>
+	<li>HackerEarth</li>
+	<li>HackerRank</li>
+	<li>SPOJ</li>
+	<li>TopCoder</li>
+</ul>
+<h2>Future Works</h2>
+<ul>
+	<li>Add previous ACM ICPC Problems</li>
+	<li>Add other languages.</li>
+	<li>Add problems from GeeksQuiz</li>
+	<li>Add problems from Facebook Hacker Cup</li>
+	<li>Add problems from UVa Online Judge</li>
+	<li>Add problems from Timus Online Judge</li>
+</ul>
+<h2>Note</h2>
+<strong>The repository might contain incompleted code / codes which does not work properly. Most of the codes are working properly. Kindly mail me if something is not correct / not completed.</strong>
