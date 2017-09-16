@@ -1,12 +1,12 @@
 <h1>Sport Programming</h1>
 <br>
-<br>
 <h2>Introduction</h2>
 <p>This repository contains all my submissions to the online judges. The solution is written in <strong>C++</strong>.</p>
 <h2>Sites Included</h2>
 <ul>
 	<li>Codechef</li>
 	<li>Codeforces</li>
+	<li>GeeksForGeeks Quiz</li>
 	<li>Google Code Jam</li>
 	<li>HackerEarth</li>
 	<li>HackerRank</li>
