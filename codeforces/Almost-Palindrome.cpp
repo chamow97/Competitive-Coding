@@ -48,11 +48,65 @@ ll lcm(ll a, ll b)
 int main()
 {
 	fastread;
-	ll a, b, c, d, e, f;
-	cin>>a>>b>>c>>d>>e>>f;
-	ll triangles = 0;
-	//editorial soln
-	triangles = pow((a + b + c),2) - ((a*a) + (c*c) + (e*e));
-	cout<<triangles;
+	string str;
+	cin>>str;
+	vector< pair< char, char > > changes;
+	ll n = str.length();
+	rep(i,0,n/2)
+	{
+		if(str[i] != str[n-i-1])
+		{
+			changes.pb(mp(str[i], str[n-1-i]));
+		}
+	}
+	if(changes.size() == 2 || changes.size() == 0)
+	{
+		if(changes.size() == 0)
+		{
+			cout<<"YES";
+		} 
+		else
+		{
+			if(changes[0].f < changes[0].s)
+			{
+				swap(changes[0].f, changes[0].s);
+			}
+			if(changes[1].f < changes[1].s)
+			{
+				swap(changes[1].f, changes[1].s);
+			}
+			if(changes[0].f == changes[1].f && changes[0].s == changes[1].s)
+			{
+				cout<<"YES";
+			}
+			else
+			{
+				cout<<"NO";
+			}
+		}
+	}
+	else if(changes.size() == 1)
+	{
+		if(n % 2 == 0)
+		{
+			cout<<"NO";
+		}
+		else
+		{
+			if(changes[0].f == str[n/2] || changes[0].s == str[n/2])
+			{
+				cout<<"YES";
+			}
+			else
+			{
+				cout<<"NO";
+			}
+		}
+
+	}
+	else
+	{
+		cout<<"NO";
+	}
 	return 0;
 }

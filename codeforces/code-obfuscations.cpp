@@ -48,11 +48,23 @@ ll lcm(ll a, ll b)
 int main()
 {
 	fastread;
-	ll a, b, c, d, e, f;
-	cin>>a>>b>>c>>d>>e>>f;
-	ll triangles = 0;
-	//editorial soln
-	triangles = pow((a + b + c),2) - ((a*a) + (c*c) + (e*e));
-	cout<<triangles;
+	set<char> s;
+	string str;
+	cin>>str;
+	char curr = 'a';
+	rep(i,0,str.length())
+	{
+		if(str[i] > curr)
+		{
+			cout<<"NO";
+			return 0;
+		}
+		else if(str[i] == curr)
+		{
+			++curr;
+		}
+	}
+	cout<<"YES";
+
 	return 0;
 }

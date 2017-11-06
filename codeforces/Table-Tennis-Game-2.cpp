@@ -48,11 +48,20 @@ ll lcm(ll a, ll b)
 int main()
 {
 	fastread;
-	ll a, b, c, d, e, f;
-	cin>>a>>b>>c>>d>>e>>f;
-	ll triangles = 0;
-	//editorial soln
-	triangles = pow((a + b + c),2) - ((a*a) + (c*c) + (e*e));
-	cout<<triangles;
+	ll k, a, b;
+	cin>>k>>a>>b;
+	ll ans = (a/k) + (b/k);
+	//but if one is zero, other should be 0
+	if((a/k) == 0 && (b % k) != 0)
+	{
+		cout<<-1;
+		return 0;
+	}
+	if((b/k) == 0 && (a % k) != 0)
+	{
+		cout<<-1;
+		return 0;
+	}
+	cout<<ans;
 	return 0;
 }

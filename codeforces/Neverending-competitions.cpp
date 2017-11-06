@@ -48,11 +48,35 @@ ll lcm(ll a, ll b)
 int main()
 {
 	fastread;
-	ll a, b, c, d, e, f;
-	cin>>a>>b>>c>>d>>e>>f;
-	ll triangles = 0;
-	//editorial soln
-	triangles = pow((a + b + c),2) - ((a*a) + (c*c) + (e*e));
-	cout<<triangles;
+	ll n;cin>>n;
+	vector<string> arr;
+	string home;
+	cin>>home;
+	rep(i,0,n)
+	{
+		string temp;
+		cin>>temp;
+		arr.pb(temp);
+	}
+	string search = home;
+	ll counter = 0;
+	rep(i,0,n)
+	{
+		if(search == arr[i].substr(0,3))
+		{
+			++counter;
+		}
+		else if(search == arr[i].substr(5,3))
+		{
+			--counter;
+		}
+	}
+	if(counter)
+	{
+		cout<<"contest";
+	}
+	else{
+		cout<<"home";
+	}
 	return 0;
 }
