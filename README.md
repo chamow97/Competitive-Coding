@@ -13,6 +13,19 @@
 	<li>SPOJ</li>
 	<li>TopCoder</li>
 </ul>
+<h2>Problem Count</h2>
+<p>Updated on 02/12/2017 (2<sup>nd</sup> December 2017)</p>
+<ul>
+	Total Count - 778
+	Codeforces - 318
+	Codechef - 242
+	HackerRank - 109
+	SPOJ - 63
+	HackerEarth - 41
+	TopCoder - 5
+	Note: This is approximate measure as 
+	<code>git ls-files | wc -l</code> is used for counting this.
+</ul>
 <h2>Future Works</h2>
 <ul>
 	<li>Add previous ACM ICPC Problems</li>
