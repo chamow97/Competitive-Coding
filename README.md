@@ -17,12 +17,19 @@
 <p>Updated on 02/12/2017 (2<sup>nd</sup> December 2017)</p>
 <ul>
 	Total Count - 778
+	<br>
 	Codeforces - 318
+	<br>
 	Codechef - 242
+	<br>
 	HackerRank - 109
+	<br>
 	SPOJ - 63
+	<br>
 	HackerEarth - 41
+	<br>
 	TopCoder - 5
+	<br>
 	Note: This is approximate measure as 
 	<code>git ls-files | wc -l</code> is used for counting this.
 </ul>
