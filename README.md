@@ -14,13 +14,13 @@
 	<li>TopCoder</li>
 </ul>
 <h2>Problem Count</h2>
-<p>Updated on 02/12/2017 (2<sup>nd</sup> December 2017)</p>
+<p>Updated on 06/01/2018 (2<sup>nd</sup> December 2017)</p>
 <ul>
 	Total Count - 778
 	<br>
-	Codeforces - 318
+	Codeforces - 385
 	<br>
-	Codechef - 242
+	Codechef - 254
 	<br>
 	HackerRank - 109
 	<br>
