@@ -33,6 +33,16 @@
 	Note: This is approximate measure as 
 	<code>git ls-files | wc -l</code> is used for counting this.
 </ul>
+<h2>Handles</h2>
+<p>Below is the list of my handles</p>
+<ul>
+	<li>Codechef - <a href="https://www.codechef.com/users/chamow">chamow</a></li>
+	<li>Codeforces - <a href="http://codeforces.com/profile/chamow">chamow</a></li>
+	<li>HackerRank - <a href="https://www.hackerrank.com/chamow">chamow</a></li>
+	<li>HackerEarth - <a href="https://www.hackerearth.com/@chandramowli">chamow</a></li>
+	<li>TopCoder - <a href="https://www.topcoder.com/members/chamow/">chamow</a></li>
+</ul>
+
 <h2>Future Works</h2>
 <ul>
 	<li>Add previous ACM ICPC Problems</li>
