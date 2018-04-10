@@ -12,12 +12,18 @@ using namespace std;
 #define mp make_pair
 #define MODULO 1000000007
 #define INF 1000000000000000
+#define fastread ios_base::sync_with_stdio(false); cin.tie(NULL);
+#define vecit vector<ll> :: iterator
+#define vecpit vector< pair<ll, ll> > :: iterator
+#define f first
+#define s second
 
 /*-------------------------------------------------------- */
 
 typedef long long ll;
 typedef vector<bool> boolean;
 typedef vector<ll> vec;
+typedef vector< pair<ll, ll> > vecpair;
 
 
 /*-------------------------------------------------------- */
@@ -36,31 +42,10 @@ ll lcm(ll a, ll b)
 	return ((a*b)/gcd(a,b));
 }
 
-long long int read_int(){
-	char r;
-	bool start=false,neg=false;
-	long long int ret=0;
-	while(true){
-		r=getchar();
-		if((r-'0'<0 || r-'0'>9) && r!='-' && !start){
-			continue;
-		}
-		if((r-'0'<0 || r-'0'>9) && r!='-' && start){
-			break;
-		}
-		if(start)ret*=10;
-		start=true;
-		if(r=='-')neg=true;
-		else ret+=r-'0';
-	}
-	if(!neg)
-		return ret;
-	else
-		return -ret;
-}
 /*-------------------------------------------------------- */
 
 int main()
 {
+	fastread;
 	return 0;
 }
