@@ -25,9 +25,9 @@
 <h2>Problem Count</h2>
 <p>Updated on 9<sup>th</sup> March 2018</p>
 <ul>
-	Total Count - 951
+	Total Count - 1038
 	<br>
-	Codeforces - 471
+	Codeforces - 558
 	<br>
 	Codechef - 262
 	<br>
