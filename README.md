@@ -23,11 +23,11 @@
 	<li>TopCoder</li>
 </ul>
 <h2>Problem Count</h2>
-<p>Updated on 9<sup>th</sup> March 2018</p>
+<p>Updated on 9<sup>th</sup> September 2019</p>
 <ul>
-	Total Count - 1038
+	Total Count - 1242
 	<br>
-	Codeforces - 558
+	Codeforces - 762
 	<br>
 	Codechef - 262
 	<br>
